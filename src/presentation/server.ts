@@ -10,7 +10,10 @@ export class Server {
       "*/3 * * * * *",
       () => {
         const date = new Date();
-        new CheckService().execute("https://www.google.com");
+        new CheckService(
+          () => console.log(`Service running on: ${date.toISOString()}`),
+          (error) => console.log(`${error}`)
+        ).execute("https://www.google.com");
         // new CheckService().execute("http://localhost:3000");
       }
     );
