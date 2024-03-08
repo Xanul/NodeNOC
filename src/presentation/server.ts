@@ -5,18 +5,20 @@ import { LogRepositoryImpl } from "../infrastructure/repositories/log.repository
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
 import { envs } from "../config/plugins/envs.plugin";
 import { EmailService } from './email/email.serv';
+import { SendEmailLogs } from "../domain/use-cases/email/sned-email-logs";
 
 const fileSystemLogRepository = new LogRepositoryImpl(new FileSystemDatasource());
+const emailServ = new EmailService();
 
 export class Server {
   public static start() {
     console.log("Server started...");
 
-    // Send Email
+    // const emailSent = new SendEmailLogs(new EmailService(), fileSystemLogRepository)
+    //   .execute('darunia.the.druid@gmail.com');
+
     // const emailService = new EmailService();
-    // emailService.sendEmailWithFileSystemLogs(
-    //   ['darunia.the.druid@gmail.com', 'rivas.060@gmail.com']
-    // )
+    // emailService.sendEmailWithFileSystemLogs('darunia.the.druid@gmail.com')
 
     // CronService.createJob(
     //   "*/3 * * * * *",
