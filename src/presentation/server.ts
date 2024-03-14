@@ -6,12 +6,17 @@ import { FileSystemDatasource } from "../infrastructure/datasources/file-system.
 import { envs } from "../config/plugins/envs.plugin";
 import { EmailService } from './email/email.serv';
 import { SendEmailLogs } from "../domain/use-cases/email/sned-email-logs";
+import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.datasource";
+import { LogSeverityLevel } from "../domain/entities/log.entity";
 
-const fileSystemLogRepository = new LogRepositoryImpl(new FileSystemDatasource());
+const currentLogRepository = new LogRepositoryImpl(
+  new FileSystemDatasource()
+  // new MongoLogDatasource()
+);
 const emailServ = new EmailService();
 
 export class Server {
-  public static start() {
+  public static async start() {
     console.log("Server started...");
 
     // const emailSent = new SendEmailLogs(new EmailService(), fileSystemLogRepository)
@@ -19,17 +24,16 @@ export class Server {
 
     // const emailService = new EmailService();
     // emailService.sendEmailWithFileSystemLogs('darunia.the.druid@gmail.com')
-
+    
     // CronService.createJob(
     //   "*/3 * * * * *",
     //   () => {
-    //     const url = "http://localhost:3000";
+    //     const url = "http://googleeesdasdfdf.com";
     //     new CheckService(
-    //       fileSystemLogRepository,
+    //       currentLogRepository,
     //       () => console.log(`${url} is OK`),
     //       (error) => console.log(`${error}`)
     //     ).execute(url);
-    //     // new CheckService().execute("http://localhost:3000");
     //   }
     // );
   }

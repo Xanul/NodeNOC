@@ -12,4 +12,5 @@ MAILER_SECRET_KEY=
 PROD=
 ```
 3. Execute ```npm install```
-4. Execute ```npm run dev```
+4. Setup the databases with ```docker compose up -d```
+5. Execute ```npm run dev```

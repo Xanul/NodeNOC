@@ -28,10 +28,12 @@ export class LogEntity {
   }
 
   static fromJson = (json:string):LogEntity => {
+
+    (json === '') ? json = '{}' : json
     
     const {message, level, createdAt, origin} = JSON.parse(json);
     
-    if(!message || !level || !createdAt) throw new Error('Invalid log entity');
+    // if(!message || !level || !createdAt) throw new Error('Invalid log entity');
 
     const log = new LogEntity({
       message: message,

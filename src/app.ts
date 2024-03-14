@@ -7,14 +7,14 @@ import { Server } from './presentation/server';
 })();
 
 async function main () {
-
-  await MongoDatabase.connect({
-    mongoURL: envs.MONGO_URL,
-    dbName: envs.MONGO_DB_NAME
-  })
-
-  // const logs = await LogModel.find({level: 'high'});
-  // console.log(logs);
-
+  
+  try {
+    await MongoDatabase.connect({
+      mongoURL: envs.MONGO_URL,
+      dbName: envs.MONGO_DB_NAME
+    })
+  } catch (error) {
+    console.log("Unable to connect to the database", error);
+  }
   Server.start();
 }
