@@ -9,7 +9,10 @@ logs/
 
 # Mongo
 /mongo
+/mongo-test
 
 # Postgres
 /postgres
+/postgres-test
+
 /prisma 
