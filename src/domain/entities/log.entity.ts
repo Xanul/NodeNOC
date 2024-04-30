@@ -50,7 +50,7 @@ export class LogEntity {
 
     const { message, level, createdAt, origin } = logObject;
     
-    if(!message || !level || !createdAt) throw new Error('Invalid log entity');
+    if(!message || !level || !origin) throw new Error('Invalid log entity');
 
     const log = new LogEntity({
       message: message,

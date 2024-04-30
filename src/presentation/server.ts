@@ -5,7 +5,7 @@ import { LogRepositoryImpl } from '../infrastructure/repositories/log.repository
 import { FileSystemDatasource } from "../infrastructure/datasources/file-system.datasource";
 import { envs } from "../config/plugins/envs.plugin";
 import { EmailService } from './email/email.serv';
-import { SendEmailLogs } from "../domain/use-cases/email/sned-email-logs";
+import { SendEmailLogs } from "../domain/use-cases/email/send-email-logs";
 import { MongoLogDatasource } from "../infrastructure/datasources/mongo-log.datasource";
 import { LogSeverityLevel } from "../domain/entities/log.entity";
 import { PostgresLogDatasource } from "../infrastructure/datasources/postgres-log.datasource";

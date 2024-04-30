@@ -17,11 +17,11 @@ export class SendEmailLogs implements SendLogEmailUseCase {
 
     try {
       const sent = await this.emailService.sendEmailWithFileSystemLogs(to);
-      const sent2 = await this.emailService.sendEmail({
-        to: to,
-        subject: 'Testing Email',
-        htmlBody: 'Esto es una prueba',
-      })
+      // const sent2 = await this.emailService.sendEmail({
+      //   to: to,
+      //   subject: 'Testing Email',
+      //   htmlBody: 'Esto es una prueba',
+      // })
       if(!sent) throw new Error('Email log was not send');
       
       const log = new LogEntity({

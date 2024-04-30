@@ -15,4 +15,7 @@ logs/
 /postgres
 /postgres-test
 
+#Test
+coverage
+
 /prisma 
