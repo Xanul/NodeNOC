@@ -22,7 +22,8 @@ export class FileSystemDatasource implements LogDatasource {
       this.mediumLogsPath,
       this.highLogsPath
     ].forEach( path => {
-      if(!fs.existsSync(path)) fs.writeFileSync(path, '');
+      if(fs.existsSync(path)) return;
+      fs.writeFileSync(path, '')
     });
 
   }

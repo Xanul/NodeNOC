@@ -6,6 +6,7 @@ logs/
 
 # Environment variables
 .env
+.env.test
 
 # Mongo
 /mongo
